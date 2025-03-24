@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - CalcuNation</title>
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <!-- Login Form -->
+            <div class="form-wrapper" id="login-form">
+                <h2 class="form-header">Login</h2>
+                <form class="login-form" id="loginForm">
+                    <div class="input-group">
+                        <label for="login-username">Username</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="login-username" name="username" placeholder="Enter your username"
+                                required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="login-password" name="password" placeholder="Enter your password"
+                                required>
+                        </div>
+                    </div>
+                    <button type="submit">Login</button>
+                    <div class="form-switch">
+                        Don't have an account? <a href="#" id="signup-link">Sign up</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div class="form-wrapper" id="signup-form" style="display: none;">
+                <h2 class="form-header">Sign Up</h2>
+                <form class="signup-form" id="signupForm">
+                    <div class="input-group">
+                        <label for="signup-username">Username</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="signup-username" name="username" placeholder="Enter your username"
+                                required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-email">Email</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="signup-email" name="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="signup-password" name="password" placeholder="Enter your password"
+                                required>
+                        </div>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                    <div class="form-switch">
+                        Already have an account? <a href="#" id="login-link">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const signupLink = document.getElementById('signup-link');
+            const loginLink = document.getElementById('login-link');
+            const loginWrapper = document.getElementById('login-form');
+            const signupWrapper = document.getElementById('signup-form');
+
+            // Function to switch to the sign-up form
+            signupLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                loginWrapper.style.display = 'none';
+                signupWrapper.style.display = 'block';
+            });
+
+            // Function to switch to the login form
+            loginLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                signupWrapper.style.display = 'none';
+                loginWrapper.style.display = 'block';
+            });
+
+            // Handle registration
+            signupForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const username = document.getElementById('signup-username').value;
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+
+                // Basic validation
+                if (!username || !email || !password) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+
+                // Check if username already exists
+                if (localStorage.getItem(username)) {
+                    alert('Username already exists. Please choose a different username.');
+                    return;
+                }
+
+                // Store user data in localStorage
+                const userData = {
+                    email: email,
+                    password: password
+                };
+                localStorage.setItem(username, JSON.stringify(userData));
+
+                alert('Registration successful! Please log in.');
+                signupWrapper.style.display = 'none';
+                loginWrapper.style.display = 'block';
+            });
+
+            // Handle login
+            loginForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const username = document.getElementById('login-username').value;
+                const password = document.getElementById('login-password').value;
+
+                // Retrieve user data from localStorage
+                const storedData = localStorage.getItem(username);
+
+                if (storedData) {
+                    const userData = JSON.parse(storedData);
+
+                    // Verify password
+                    if (userData.password === password) {
+                        alert('Login successful!');
+                        // Set isLoggedIn flag
+                        localStorage.setItem('isLoggedIn', 'true');
+                        // Redirect to a logged-in page or perform other actions
+                        window.location.href = 'index.html'; // Example: redirect to index.html
+                        return;
+                    }
+                }
+
+                alert('Invalid username or password.');
+            });
+        });
+    </script>
+</body>
+
+</html>

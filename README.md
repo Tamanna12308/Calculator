@@ -1,5 +1,5 @@
 # Calculator
 
-# https://github.com/Tamanna12308/Calculator.github.io.git
+# https://tamanna12308.github.io/Calculator
 
 # Calculator.github.io

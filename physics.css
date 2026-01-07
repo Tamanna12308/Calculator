@@ -1,0 +1,210 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text for contrast */
+  line-height: 1.6;
+  padding: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 2px solid #37474f;
+  margin-bottom: 2rem;
+}
+
+.header-left .title {
+  font-size: 2rem;
+  color: #80cbc4; /* Teal accent color */
+}
+
+.header-left .title i {
+  margin-right: 0.5rem;
+}
+
+.header-right .back-home-btn {
+  background-color: #26a69a; /* Teal button */
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.header-right .back-home-btn:hover {
+  background-color: #00796b;
+}
+
+.header-right .back-home-btn i {
+  margin-right: 0.3rem;
+}
+
+/* Intro Section */
+.intro {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #1e272e;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.intro p {
+  font-size: 1.1rem;
+  color: #b2bec3;
+}
+
+/* Formula Categories */
+.formula-categories {
+  margin-bottom: 3rem;
+}
+
+.formula-categories h2 {
+  font-size: 1.6rem;
+  color: #80cbc4;
+  margin-bottom: 1rem;
+}
+
+.formula-categories h2 i {
+  margin-right: 0.5rem;
+}
+
+.formula-categories ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #1e272e;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+}
+
+.formula-categories ul li a {
+  color: #80cbc4;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.formula-categories ul li a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.formula-categories ul li a i {
+  margin-right: 0.3rem;
+}
+
+/* Main Content Container */
+.formulas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Category Sections */
+.category-section {
+  margin-bottom: 3rem;
+}
+
+.category-section h2 {
+  font-size: 1.8rem;
+  color: #80cbc4;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Formula Card */
+.formula-card {
+  background-color: #263238;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formula-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.formula-card h3 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.formula-card p {
+  font-size: 1.1rem;
+  color: #b2bec3;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.formula-card .formula-description {
+  font-style: italic;
+  color: #607d8b;
+}
+
+.formula-card .details-link {
+  color: #4db6ac;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.formula-card .details-link:hover {
+  color: #fff;
+}
+
+/* Footer Styles */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 2px solid #37474f;
+  margin-top: 4rem;
+  color: #607d8b;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .header {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .header-left {
+      margin-bottom: 1rem;
+  }
+
+  .formula-categories ul {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .formula-categories ul li {
+      margin-bottom: 0.5rem;
+  }
+}

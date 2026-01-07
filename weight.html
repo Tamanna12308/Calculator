@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Weight Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="conversionFormulas.css">
+</head>
+<body>
+    <div class="container">
+        <div class="glass-card">
+            <h1><i class="fas fa-weight"></i> Weight Conversion</h1>
+
+            <div class="input-group">
+                <label for="fromWeightUnit">From Unit</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-exchange-alt"></i>
+                    <input type="text" id="fromWeightUnit" list="weightUnitList" placeholder="Select unit">
+                    <datalist id="weightUnitList">
+                        <option value="mg">
+                        <option value="g">
+                        <option value="kg">
+                        <option value="t">
+                        <option value="oz">
+                        <option value="lb">
+                        <option value="st">
+                        <option value="us_ton">
+                        <option value="uk_ton">
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="toWeightUnit">To Unit</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-exchange-alt"></i>
+                    <input type="text" id="toWeightUnit" list="weightUnitList" placeholder="Select unit">
+                </div>
+            </div>
+
+            <button id="swapWeight" class="swap-button">
+                <i class="fas fa-sync-alt"></i>
+                <span>Swap Units</span>
+            </button>
+
+            <div class="input-group">
+                <label for="weightValue">Value</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-calculator"></i>
+                    <input type="number" id="weightValue" placeholder="Enter value">
+                </div>
+            </div>
+
+            <div id="result" class="result">
+                <span class="result-label">Result:</span>
+                <span class="result-value">0</span>
+            </div>
+
+            <div class="info-section">
+                <div id="unitDescription" class="unit-info">
+                    <h3><i class="fas fa-info-circle pulse"></i> Unit Description</h3>
+                    <p id="descriptionText">Select a unit to view its description.</p>
+                </div>
+
+                <div id="unitHistory" class="unit-info">
+                    <h3><i class="fas fa-history pulse"></i> Unit History</h3>
+                    <p id="historyText">Select a unit to view its history.</p>
+                </div>
+            </div>
+
+            <div id="calculationHistory" class="history-section">
+                <h3><i class="fas fa-list-alt"></i> Calculation History</h3>
+                <ul id="historyList"></ul>
+                <div class="button-group">
+                    <button id="clearHistory" class="clear-button">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>Clear History</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="weight.js"></script>
+</body>
+</html>

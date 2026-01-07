@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Area Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="conversionFormulas.css">
+</head>
+<body>
+    <div class="container">
+        <div class="glass-card">
+            <h1><i class="fas fa-shapes"></i> Area Conversion</h1>
+
+            <div class="input-group">
+                <label for="fromAreaUnit">From Unit</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-exchange-alt"></i>
+                    <input type="text" id="fromAreaUnit" list="areaUnitList" placeholder="Select unit">
+                    <datalist id="areaUnitList">
+                        <option value="Square Meter">
+                        <option value="Square Kilometer">
+                        <option value="Square Mile">
+                        <option value="Square Yard">
+                        <option value="Square Foot">
+                        <option value="Acre">
+                        <option value="Hectare">
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="toAreaUnit">To Unit</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-exchange-alt"></i>
+                    <input type="text" id="toAreaUnit" list="areaUnitList" placeholder="Select unit">
+                </div>
+            </div>
+
+            <button id="swapArea" class="swap-button">
+                <i class="fas fa-sync-alt"></i>
+                <span>Swap Units</span>
+            </button>
+
+            <div class="input-group">
+                <label for="areaValue">Value</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-calculator"></i>
+                    <input type="number" id="areaValue" placeholder="Enter value">
+                </div>
+            </div>
+
+            <div id="result" class="result">
+                <span class="result-label">Result:</span>
+                <span class="result-value">0</span>
+            </div>
+
+            <div class="info-section">
+                <div id="unitDescription" class="unit-info">
+                    <h3><i class="fas fa-info-circle pulse"></i> Unit Description</h3>
+                    <p id="descriptionText">Select a unit to view its description.</p>
+                </div>
+
+                <div id="unitHistory" class="unit-info">
+                    <h3><i class="fas fa-history pulse"></i> Unit History</h3>
+                    <p id="historyText">Select a unit to view its history.</p>
+                </div>
+            </div>
+
+            <div id="calculationHistory" class="history-section">
+                <h3><i class="fas fa-list-alt"></i> Calculation History</h3>
+                <ul id="historyList"></ul>
+                <div class="button-group">
+                    <button id="clearHistory" class="clear-button">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>Clear History</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="area.js"></script>
+</body>
+</html>
